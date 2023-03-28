@@ -27,7 +27,7 @@ export default function Home() {
               className={styles.vercelLogo}
               width={100}
               height={24}
-              priority
+              // priority
             />
           </a>
         </div>
@@ -48,6 +48,7 @@ export default function Home() {
       </div>
 
        <Link href="/about">About </Link>
+      
       <div className={styles.grid}>
 
         <a
