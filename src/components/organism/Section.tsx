@@ -38,7 +38,7 @@ export const Section: React.FC<SectionProps> = ({
             <h1 className={sectionTitleClassName}>{sectionTitle}</h1>
           ) : (
             <h2 className={sectionTitleClassName}>{sectionTitle}</h2>
-
+          )}
         </>
       )}
       <div className={colsClassName}>
