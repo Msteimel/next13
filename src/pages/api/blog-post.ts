@@ -1,22 +1,23 @@
 import path from 'path';
-
 import { promises as fs } from 'fs';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
-  //Find the absolute path of the json directory
-
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
+  // Find the absolute path of the json directory
   const jsonDirectory = path.join(process.cwd(), 'data/notes');
 
-  //Read the json data file data.json
-
+  // Read the json data file data.json
   const fileContents = await fs.readFile(
-    jsonDirectory + '/2023-05-01-Paddle-API.jsx',
+    path.join(jsonDirectory, '2023-05-01-Paddle-API.json'),
     'utf8',
   );
 
-  //Return the content of the data file in json format
+  const data = JSON.parse(fileContents);
+  console.log(data.slug);
 
-  res.status(200).json(fileContents);
-
-  console.log(fileContents);
+  // Return the content of the data file in json format
+  res.status(200).json(data);
 }
